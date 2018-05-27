@@ -1,2 +1,4 @@
 # CarProject
-Raspberry Pi car project
+Raspberry Pi Car Project
+
+by Knopf and Seb
