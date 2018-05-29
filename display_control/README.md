@@ -1,4 +1,4 @@
-Display Module description
+# Display Module description
 
 setup:
   - HD44780 16x2 LCD Display
