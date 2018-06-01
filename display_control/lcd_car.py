@@ -6,7 +6,7 @@ from time import sleep
 lcd.lcd_init()
 
 def display_info(text):
-    if isinstance(text, 'string'):
+    if isinstance(text, str):
         text_len = len(text)
         if text_len > 16:
             for i in range(text_len):
@@ -15,7 +15,7 @@ def display_info(text):
         else:
             lcd.lcd_string(text,1)
 
-    if isinstance(text, 'list'):
+    if isinstance(text, list):
         #TODO: add writing on both lines
         pass
 
