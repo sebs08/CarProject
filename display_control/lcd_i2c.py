@@ -99,6 +99,9 @@ def lcd_toggle_enable(bits):
 def lcd_string(message,line):
   # Send string to display
 
+  line = LCD_LINE_1 if line == 1 else None
+  line = LCD_LINE_2 if line == 2 else None
+
   message = message.ljust(LCD_WIDTH," ")
 
   lcd_byte(line, LCD_CMD)
@@ -106,23 +109,28 @@ def lcd_string(message,line):
   for i in range(LCD_WIDTH):
     lcd_byte(ord(message[i]),LCD_CHR)
 
+def clear_screen():
+        lcd_byte(0x01, LCD_CMD)
+
+
+
 def main():
   # Main program block
 
   # Initialise display
   lcd_init()
 
-  while True:
+  for i in range(5):
 
     # Send some test
-    lcd_string("RPiSpy         <",LCD_LINE_1)
-    lcd_string("I2C LCD        <",LCD_LINE_2)
+    lcd_string("RPiSpy         <",1)
+    lcd_string("I2C LCD        <",2)
 
     time.sleep(3)
   
     # Send some more text
-    lcd_string(">         RPiSpy",LCD_LINE_1)
-    lcd_string(">        I2C LCD",LCD_LINE_2)
+    lcd_string(">         RPiSpy",1)
+    lcd_string(">        I2C LCD",2)
 
     time.sleep(3)
 
