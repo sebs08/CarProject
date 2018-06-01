@@ -96,11 +96,11 @@ def lcd_toggle_enable(bits):
   bus.write_byte(I2C_ADDR,(bits & ~ENABLE))
   time.sleep(E_DELAY)
 
-def lcd_string(message,line):
+def lcd_string(message,row):
   # Send string to display
 
-  line = LCD_LINE_1 if line == 1 else None
-  line = LCD_LINE_2 if line == 2 else None
+  line = 0x80 if row == 1 else None
+  line = 0xC0 if row == 2 else None
 
   message = message.ljust(LCD_WIDTH," ")
 
