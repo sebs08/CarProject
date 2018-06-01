@@ -10,8 +10,9 @@ def display_info(text):
         text_len = len(text)
         if text_len > 16:
             for i in range(text_len):
-                lcd.lcd_string(text[i:i+16], 1)
-                sleep(0.3)
+                if i < text_len:
+                    lcd.lcd_string(text[i:i+16], 1)
+                    sleep(0.3)
         else:
             lcd.lcd_string(text,1)
 
